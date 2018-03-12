@@ -56,7 +56,11 @@ public class StickyHeader: NSObject {
         set {
           guard newValue != _view else { return }
             _view = newValue
-            updateConstraints()
+
+            self.height = _view?.sizeThatFits(UIScreen.main.bounds.size).height ?? 0
+            _minimumHeight = self.height
+
+            self.updateConstraints()
         }
         get {
             return _view
