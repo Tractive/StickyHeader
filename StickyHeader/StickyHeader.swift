@@ -149,10 +149,7 @@ public class StickyHeader: NSObject {
         let frame = CGRect(x: 0, y: relativeYOffset, width: scrollView.frame.size.width, height: height)
 
         self.contentView.frame = frame
-
-        if let stickyView = self.view {
-            self.contentView.bringSubview(toFront: stickyView)
-        }
+        self.scrollView?.bringSubview(toFront: contentView)
     }
 
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
