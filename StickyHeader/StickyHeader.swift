@@ -25,6 +25,10 @@ public class StickyHeader: NSObject {
 
     private weak var _scrollView: UIScrollView?
 
+    public override init() {
+        super.init()
+    }
+
     /**
      The `UIScrollView` attached to the sticky header.
     */
