@@ -14,19 +14,14 @@ private var xoStickyHeaderKey: UInt8 = 0
 public extension UIScrollView {
 
     public var stickyHeader: StickyHeader! {
+        var header = objc_getAssociatedObject(self, &xoStickyHeaderKey) as? StickyHeader
 
-        get {
-
-            var header = objc_getAssociatedObject(self, &xoStickyHeaderKey) as? StickyHeader
-
-            if header == nil {
-                header = StickyHeader()
-                header!.scrollView = self
-                objc_setAssociatedObject(self, &xoStickyHeaderKey, header, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            }
-
-            return header!
+        if header == nil {
+            header = StickyHeader()
+            header!.scrollView = self
+            objc_setAssociatedObject(self, &xoStickyHeaderKey, header, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
 
+        return header!
     }
 }

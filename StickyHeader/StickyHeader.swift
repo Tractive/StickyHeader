@@ -15,7 +15,7 @@ public class StickyHeader: NSObject {
 
     /**
      The view containing the provided header.
-    */
+     */
     private(set) lazy var contentView: StickyHeaderView = {
         let view = StickyHeaderView()
         view.parent = self
@@ -31,7 +31,7 @@ public class StickyHeader: NSObject {
 
     /**
      The `UIScrollView` attached to the sticky header.
-    */
+     */
     public weak var scrollView: UIScrollView? {
         get {
             return _scrollView
@@ -41,8 +41,8 @@ public class StickyHeader: NSObject {
             if _scrollView != newValue {
                 _scrollView = newValue
 
-               if let scrollView = scrollView {
-                self.adjustScrollViewTopInset(top: scrollView.contentInset.top + self.height)
+                if let scrollView = scrollView {
+                    self.adjustScrollViewTopInset(top: scrollView.contentInset.top + self.height)
                     scrollView.addSubview(self.contentView)
                 }
 
@@ -77,7 +77,7 @@ public class StickyHeader: NSObject {
 
     /**
      The height of the header.
-    */
+     */
     public var height: CGFloat {
         get { return _height }
         set {
@@ -98,7 +98,7 @@ public class StickyHeader: NSObject {
 
     /**
      The minimum height of the header.
-    */
+     */
     public var minimumHeight: CGFloat {
         get { return _minimumHeight }
         set {
@@ -158,7 +158,7 @@ public class StickyHeader: NSObject {
         self.scrollView?.bringSubview(toFront: contentView)
     }
 
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if let path = keyPath, context == &StickyHeaderView.KVOContext && path == "contentOffset" {
             self.layoutContentView()
         } else {
