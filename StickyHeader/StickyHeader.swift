@@ -54,7 +54,9 @@ public class StickyHeader: NSObject {
      */
     public var view: UIView? {
         set {
-          guard newValue != _view else { return }
+            guard newValue != _view else { return }
+
+            _view?.removeFromSuperview()
             _view = newValue
 
             self.height = _view?.sizeThatFits(UIScreen.main.bounds.size).height ?? 0
