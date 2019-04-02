@@ -13,7 +13,7 @@ private var xoStickyHeaderKey: UInt8 = 0
 
 public extension UIScrollView {
 
-    public var stickyHeader: StickyHeader! {
+    var stickyHeader: StickyHeader! {
         var header = objc_getAssociatedObject(self, &xoStickyHeaderKey) as? StickyHeader
 
         if header == nil {

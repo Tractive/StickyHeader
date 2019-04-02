@@ -32,7 +32,7 @@ public class StickyHeader: NSObject {
     /**
      The `UIScrollView` attached to the sticky header.
      */
-    public weak var scrollView: UIScrollView? {
+    public var scrollView: UIScrollView? {
         get {
             return _scrollView
         }
@@ -155,7 +155,7 @@ public class StickyHeader: NSObject {
         let frame = CGRect(x: 0, y: relativeYOffset, width: scrollView.frame.size.width, height: height)
 
         self.contentView.frame = frame
-        self.scrollView?.bringSubview(toFront: contentView)
+        self.scrollView?.bringSubviewToFront(contentView)
     }
 
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
