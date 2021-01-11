@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author             = { "Yannick Heinrich" => "yannick.heinrich@gmail.com" }
   s.source       = { :git => "https://github.com/yageek/StickyHeader.git", :tag => "#{s.version}" }
-  s.source_files  = "StickyHeader"
+  s.source_files  = "Sources/StickyHeader"
   s.platform = :ios
   s.ios.deployment_target = '8.0'
 end
